@@ -124,9 +124,9 @@ def hallarPeriodo(lista):
 
 #GLC(106,145,6075,5)
 #GEM(106,6075,5)
-#GPY(5000)
+#GPY(10000)
 #corridas(secuenciaGPY)
-
+#poker(secuenciaGPY,5)
 
 
 

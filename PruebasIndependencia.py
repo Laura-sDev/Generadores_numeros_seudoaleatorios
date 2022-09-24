@@ -147,49 +147,45 @@ def series(secuencia):
     print('Tabla FE')
     print(tablaFE)
 
-
 # Poker
 def poker(secuencia,decimales):
     t = PrettyTable (['Rangos','FO ','FE', '|FE-FO|'])
     listaCasosP5=('TD','1P','2P','TP','T','P','Q')
     listaCasosP3=('TD','1P','T')
-    #poker 3
     if decimales == 3:
         for i in range(len(secuencia)):
             tresCifras = round(secuencia[i],3)
             secuenciaTresCifras.append(tresCifras)
             numero = str(secuenciaTresCifras[i])
             
-            # Obtener solo los decimales
             if numero < '1':
                 numeroDec = numero.replace('0.','') 
-            else: numeroDec = numero.replace('1','')
+            else: numeroDec = numero.replace('1.','')
 
-            if len(numeroDec) == 0: 
-                numeroDec = numeroDec + '000'
-            elif len(numeroDec) == 1: 
-                numeroDec = numeroDec + '00'
+            if len(numeroDec) == 1: 
+                numeroDec = numeroDec + '0' + '0'
             elif len(numeroDec) == 2:
                 numeroDec = numeroDec + '0'
         
             digitos = [int(i) for i in str(numeroDec)]
-     
-            if digitos[0] == digitos[1] and digitos[0] == digitos[2]:
+
+            if digitos[0] != digitos[1] and digitos[0] != digitos[2] and digitos[1] != digitos[2]:
+                categiras_3[0] += 1
+            elif digitos[0] == digitos[1] and digitos[0] == digitos[2]:
                 categiras_3[2] += 1
             elif digitos[0] == digitos[1] or digitos[0] == digitos[2] or digitos[1] == digitos[2]:
                 categiras_3[1] += 1
-            else: categiras_3[0] += 1
         
         s = len(secuencia)
         FO = categiras_3
-        FE = [round(0.72*s,3), round(0.27*s,3), round(0.1*s,3)] # Se ajusta las probabilidades a la cantidad de datos generados
+        FE = [round(0.72*s,3), round(0.27*s,3), round(0.1*s,3)]
         Xcalc = 0
         Xcritico = 5.99
 
         for i in range(len(FO)):
             Xcalc = round(((FO[i]-FE[i])**2)/FE[i], 5)
             listaXcalc.append(Xcalc)
-
+        
         for i in range(len(FO)):
             t.add_row([listaCasosP3[i], FO[i], FE[i], listaXcalc[i]])
 
@@ -201,8 +197,7 @@ def poker(secuencia,decimales):
         print(FE)
         print(listaXcalc)
         print(t)
-    
-    #poker 5
+
     elif decimales == 5:
         for i in range(len(secuencia)):
             numero = str(secuencia[i])
@@ -210,16 +205,14 @@ def poker(secuencia,decimales):
             if numero < '1':
                 numeroDec = numero.replace('0.','') 
             else: 
-                numeroDec = numero.replace('1','')
+                numeroDec = numero.replace('1.','')
             
-            if len(numeroDec) == 0: 
-                numeroDec = numeroDec + '00000'
-            elif len(numeroDec) == 1: 
-                numeroDec = numeroDec + '0000'
+            if len(numeroDec) == 1: 
+                numeroDec = numeroDec + '0' + '0' + '0' + '0'
             elif len(numeroDec) == 2: 
-                numeroDec = numeroDec + '000'
+                numeroDec = numeroDec + '0' + '0' + '0'
             elif len(numeroDec) == 3: 
-                numeroDec = numeroDec + '00'
+                numeroDec = numeroDec + '0' + '0'
             elif len(numeroDec) == 4:
                 numeroDec = numeroDec + '0'
         
@@ -280,8 +273,8 @@ def poker(secuencia,decimales):
             print("SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
         else:
             print("NO SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
-        print(FO)
-        print(FE)
+        #print(FO)
+        #print(FE)
         print(sum(listaXcalc))
         print(t)
     else: print("Elija entre 3 o 5 decimales")
