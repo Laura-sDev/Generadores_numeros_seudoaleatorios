@@ -60,16 +60,20 @@ def corridas(secuencia):
     varianza = (16*(len(secuencia))-29)/90
     Z = round(abs((sum(listaA)-valorEsperado)/math.sqrt(varianza)),5)
 
+    print('---------------------- PRUEBA INDEPENDENCIA: * CORRIDAS * --------------------------------\n' ) 
+    print('Numero de Corridas: ', sum(listaA))
     if Z < rangoIndependencia:
-        print("No hay evidencia para rechazar la hipotesis de independencia")
-        print(Z)
+        print("PASA LA PRUEBA: No hay evidencia para rechazar la hipotesis de independencia, el valor calculado se encuentra dentro del rango")
+        print('Valor calculado:', Z)
+        print('valor critico:',  rangoIndependencia, '\n')
+
     else: 
-        print("Rechazado")
-        print(Z)
+        print("NO PASA LA PRUEBA: Se rechaza la hipotesis de independencia, el valor calculado no se encuentra dentro del rango")
+        print('Valor calculado:', Z)
+        print('valor critico:',  rangoIndependencia, '\n')
+
     #print(listaS) #Lista s sirve como mostrar la lista con + o -
-    print('Numero de corridas:')
-    print(sum(listaA))
-    print(t)
+    print(t, 'n')
 
 # Series
 def series(secuencia):

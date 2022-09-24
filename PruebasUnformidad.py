@@ -21,11 +21,17 @@ def PCC(secuencia,frecuenciaObtenida):
         
         t.add_row([rangos[rangoaux],FO, FE, chiCuadrado])
         rangoaux+=1
-
+    
+    print('-------------------------------- PRUEBA CHI CUADRADO ----------------------- \n')
     if sum(listaChiCuadrado) <= chiCritico:
-        print("El generador es buenisimo en cuanto a uniformidad")
-    else: print("No")
-    print(t)
+        print("El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
+        print('Valor calculado:', sum(listaChiCuadrado))
+        print('Chi critico:', chiCritico, '\n')
+    else: 
+        print("No pasa la prueba Chi cuadrado, se pone en duda su uniformidad el valor calculado es mayor al critico")
+        print('Valor calculado:', sum(listaChiCuadrado))
+        print('Chi critico:', chiCritico, '\n')
+    print(t, '\n')
 
 # Prueba kolmogorov
 def kolmogorov(secuencia,frecuenciaObtenida):
@@ -48,11 +54,14 @@ def kolmogorov(secuencia,frecuenciaObtenida):
         t.add_row([rangos[rangoaux],FO,FOA,POA,PEA,PEAmenosPOA])
         rangoaux+=1
 
+    print('------------------------- PRUEBA KOLMOGOROV - SMIRNOV ----------------------------------\n')
     if max(listaKolmogorov) <= DMcritico:
-        print("ES MUY BUENOOOOOO")
-        print(max(listaKolmogorov))
+        print("El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
+        print('Valor calculado:', max(listaKolmogorov))
+        print('DMcritico:', DMcritico, '\n')
     else:
-        print("no")
-        print(max(listaKolmogorov))
-    print(t)
+        print("No pasa la prueba kolmogorov, se pone en duda su uniformidad el valor calculado es mayor al critico")
+        print('Valor calculado:', max(listaKolmogorov))
+        print('DMcritico:', DMcritico, '\n')
+    print(t, '\n')
    

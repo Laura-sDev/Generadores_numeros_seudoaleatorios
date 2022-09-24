@@ -3,7 +3,7 @@ import math
 import random
 from PruebasIndependencia import *
 from PruebasUnformidad import *
-from tokenize import String
+#from tokenize import String
 
 # Variables GLC
 secuenciaGLC = list()
@@ -47,14 +47,13 @@ def GLC(a,c,m,x0):
                 break
 
         else: break
-    
-    print('---------------- GENERADOR LINEAL CONGRUENTE ----------------')
+
+    print('---------------------- GENERADOR LINEAL CONGRUENTE --------------------------------\n' ) 
     hallarPeriodo(secuenciaGLC)
-    print('Secuencia generada:')
-    print(secuenciaGLC)
+    print('**************** Secuencia generada ****************************\n')
+    print(secuenciaGLC, '\n')
 
     return secuenciaGLC,frecuenciaObtenidaGLC, relacionSecuenciaGLC
-
 
 # Generador estadar minimo
 def GEM(a,m,x0):
@@ -83,10 +82,10 @@ def GEM(a,m,x0):
 
         else: break
 
-    print('---------------- GENERADOR ESTANDAR MÍNIMO ----------------')
+    print('----------------------------------- GENERADOR ESTANDAR MÍNIMO -------------------------------------\n')
     hallarPeriodo(secuenciaGEM)
-    print('Secuencia generada:')
-    print(secuenciaGEM)
+    print('*********************************** Secuencia generada: **************************************\n')
+    print(secuenciaGEM, '\n')
 
     return secuenciaGEM,frecuenciaObtenidaGEM, relacionSecuenciaGEM
 
@@ -104,11 +103,11 @@ def GPY(m):
 
         secuenciaGPY.append(xn)
 
-    print('---------------- GENERADOR DE PYTHON----------------')
+    print('-------------------------------------- GENERADOR DE PYTHON -----------------------------------\n')
+    print('\n')
     hallarPeriodo(secuenciaGPY)
-    print('Secuencia generada:')
-    print(secuenciaGPY)
-
+    print('***********************************Secuencia generada:**********************************\n')
+    print(secuenciaGPY,'\n')
 
     return secuenciaGPY,frecuenciaObtenidaGPY
 
@@ -116,22 +115,22 @@ def GPY(m):
 def hallarPeriodo(lista):
     try:
         periodo = lista.index(lista[0],1)
-        print("El periodo para este generador es: ", periodo)
+        print("El periodo para este generador es: ", periodo, '\n')
     except ValueError:
-        print("¡Oops! No se halla el periodo para la cantidad de datos generada.")
+        print("¡Oops! No se halla el periodo para la cantidad de datos generada.\n")
 
 #llamadosFunciones
 
-#GLC(106,145,6075,5)
+GLC(106,145,6075,5)
 #GEM(106,6075,5)
-#GPY(10000)
+#GPY(5000)
 #corridas(secuenciaGPY)
-#poker(secuenciaGPY,5)
 
 
 
-#kolmogorov(secuenciaGLC,frecuenciaObtenidaGLC)
-#PCC(secuenciaGLC,frecuenciaObtenidaGLC)
+
+kolmogorov(secuenciaGLC,frecuenciaObtenidaGLC)
+PCC(secuenciaGLC,frecuenciaObtenidaGLC)
 #PCC(secuenciaGEM, frecuenciaObtenidaGEM)
 #print(relacionSecuenciaGLC)
 #series(relacionSecuenciaGLC)
