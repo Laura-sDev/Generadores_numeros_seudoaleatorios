@@ -78,6 +78,7 @@ def corridas(secuencia):
         if listaS[x]==1:
             print('+',end=" ")
         else: print('-',end=" ")
+    print('\n')
     #print(t, '\n') #Esa es la tabla que muestra la longitud de cada corrida y es extremadamente largo, que pereza
 
 # Series

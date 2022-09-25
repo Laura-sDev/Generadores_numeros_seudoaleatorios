@@ -38,3 +38,4 @@ def main(a=0,c=0,m=0,x0=0,generator='GLC',activar_chiCuadrado=True, activar_kolm
 
 #main(a=255, generator='GLC', c=100,m=1033,x0=5)
 #main(a=255, generator='GEM', c=100,m=1033,x0=5,activar_chiCuadrado=False, activar_kolmogorov=False, activar_corridas=False, activar_series=False, activar_poker=False)
+#main(a=255, generator='GEM', c=100,m=1033,x0=5)
