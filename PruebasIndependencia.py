@@ -60,7 +60,7 @@ def corridas(secuencia):
     varianza = (16*(len(secuencia))-29)/90
     Z = round(abs((sum(listaA)-valorEsperado)/math.sqrt(varianza)),5)
 
-    print('---------------------- PRUEBA INDEPENDENCIA: * CORRIDAS * --------------------------------\n' ) 
+    print('--------------------------------- PRUEBA INDEPENDENCIA: * CORRIDAS * -------------------------------------\n' ) 
     print('Numero de Corridas: ', sum(listaA))
     if Z < rangoIndependencia:
         print("PASA LA PRUEBA: No hay evidencia para rechazar la hipotesis de independencia, el valor calculado se encuentra dentro del rango")
@@ -71,8 +71,14 @@ def corridas(secuencia):
         print("NO PASA LA PRUEBA: Se rechaza la hipotesis de independencia, el valor calculado no se encuentra dentro del rango")
         print('Valor calculado:', Z)
         print('valor critico:',  rangoIndependencia, '\n')
-    #print(listaS) #Lista s sirve como mostrar la lista con + o -
-    print(t, '\n')
+    print('++++++++++++++++++++++++++++ Comportamiento crecimiento - decrecimiento corridas ++++++++++++++++++++++\n')
+
+    print('(*)',end=" ")
+    for x in range(1,len(listaS)):
+        if listaS[x]==1:
+            print('+',end=" ")
+        else: print('-',end=" ")
+    #print(t, '\n') #Esa es la tabla que muestra la longitud de cada corrida y es extremadamente largo, que pereza
 
 # Series
 def series(secuencia):
@@ -112,7 +118,7 @@ def series(secuencia):
                     break
 
     FE = (len(secuencia)/2) / 25
-    print(FE)
+    #print(FE)
 
     contadorAuxrango=1
     for i in range(len(FOseries)):
@@ -291,7 +297,6 @@ def poker(secuencia,decimales):
             print("NO PASA LA PRUEBA: No se acepta la hipótesis que los datos tienen una independencia, el valor calculado es mayor valor crítico")
             print('Valor calculado:', sum(listaXcalc))
             print('valor critico:',  Xcritico, '\n')
-        #print(FO)
-        #print(FE)
+     
         print(t,'\n')
     else: print("Elija entre 3 o 5 decimales")
