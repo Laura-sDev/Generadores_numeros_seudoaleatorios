@@ -71,9 +71,8 @@ def corridas(secuencia):
         print("NO PASA LA PRUEBA: Se rechaza la hipotesis de independencia, el valor calculado no se encuentra dentro del rango")
         print('Valor calculado:', Z)
         print('valor critico:',  rangoIndependencia, '\n')
-
     #print(listaS) #Lista s sirve como mostrar la lista con + o -
-    print(t, 'n')
+    print(t, '\n')
 
 # Series
 def series(secuencia):
@@ -136,26 +135,30 @@ def series(secuencia):
         
         contadorAuxrango+=1
 
-
-
     
+    print('---------------------- PRUEBA INDEPENDENCIA: * SERIES * --------------------------------\n' )     
     if Xcalc <= Xcritico:
-        print("El generador es buenisimo en cuanto a independenciaaaaa")
-        print(Xcalc)
+        print("PASA LA PRUEBA: No hay evidencia para rechazar la hipotesis de independencia, el valor calculado es menor o igual al valor critico")
+        print('Valor calculado:', Xcalc)
+        print('valor critico:',  Xcritico, '\n')
     else: 
-        print("No")
-    print('Tabla FO')
-    print(tablaFO)
-    print('Tabla Chicuadrado')
-    print(tablaChicuadrado)
-    print('Tabla FE')
-    print(tablaFE)
+        print("NO PASA LA PRUEBA: Se rechaza la hipotesis de independencia, el valor calculado es mayor al valor calculado")
+        print('Valor calculado:', Xcalc)
+        print('valor critico:',  Xcritico, '\n')
+
+    print('++++++++++++++++++++++++++++++ Tabla FO ++++++++++++++++++++++++++++++++ \n')
+    print(tablaFO,'\n')
+    print('++++++++++++++++++++++++++++++ Tabla Chicuadrado ++++++++++++++++++++++++\n')
+    print(tablaChicuadrado,'\n')
+    print('++++++++++++++++++++++++++++++ Tabla FE +++++++++++++++++++++++++++++++++\n')
+    print(tablaFE,'\n')
 
 # Poker
 def poker(secuencia,decimales):
     t = PrettyTable (['Rangos','FO ','FE', '|FE-FO|'])
     listaCasosP5=('TD','1P','2P','TP','T','P','Q')
     listaCasosP3=('TD','1P','T')
+    #poker 3 ----------------------------------------------------
     if decimales == 3:
         for i in range(len(secuencia)):
             tresCifras = round(secuencia[i],3)
@@ -192,16 +195,22 @@ def poker(secuencia,decimales):
         
         for i in range(len(FO)):
             t.add_row([listaCasosP3[i], FO[i], FE[i], listaXcalc[i]])
-
+        
+        print('---------------------- PRUEBA INDEPENDENCIA: * POKER 3 * --------------------------------\n' )
         if sum(listaXcalc) <= Xcritico:
-            print("SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
+            print("PASA LA PRUEBA: se acepta la hipótesis que los datos tienen una independencia, el valor calculado es menor o gual al valor crítico")
+            print('Valor calculado:', sum(listaXcalc))
+            print('valor critico:',  Xcritico, '\n')
         else:
-            print("NO SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
-        print(FO)
-        print(FE)
-        print(listaXcalc)
-        print(t)
+            print("NO PASA LA PRUEBA: No se acepta la hipótesis que los datos tienen una independencia, el valor calculado es mayor valor crítico")
+            print('Valor calculado:', sum(listaXcalc))
+            print('valor critico:',  Xcritico, '\n')
+        #print(FO)
+        #print(FE)
+        #print(listaXcalc)
+        print(t,'\n')
 
+        #poker 5-------------------------------------------------------
     elif decimales == 5:
         for i in range(len(secuencia)):
             numero = str(secuencia[i])
@@ -272,13 +281,17 @@ def poker(secuencia,decimales):
         
         for i in range(len(FO)):
             t.add_row([listaCasosP5[i], FO[i], FE[i], listaXcalc[i]])
-
+        
+        print('---------------------- PRUEBA INDEPENDENCIA: * POKER 5 * --------------------------------\n' )
         if sum(listaXcalc) <= Xcritico:
-            print("SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
+            print("PASA LA PRUEBA: se acepta la hipótesis que los datos tienen una independencia, el valor calculado es menor o gual al valor crítico")
+            print('Valor calculado:', sum(listaXcalc))
+            print('valor critico:',  Xcritico, '\n')
         else:
-            print("NO SE ACEPTA!!! la hipotesis de que los datos tienen una independencia")
+            print("NO PASA LA PRUEBA: No se acepta la hipótesis que los datos tienen una independencia, el valor calculado es mayor valor crítico")
+            print('Valor calculado:', sum(listaXcalc))
+            print('valor critico:',  Xcritico, '\n')
         #print(FO)
         #print(FE)
-        print(sum(listaXcalc))
-        print(t)
+        print(t,'\n')
     else: print("Elija entre 3 o 5 decimales")

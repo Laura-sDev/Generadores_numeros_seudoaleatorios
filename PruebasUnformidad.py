@@ -22,13 +22,13 @@ def PCC(secuencia,frecuenciaObtenida):
         t.add_row([rangos[rangoaux],FO, FE, chiCuadrado])
         rangoaux+=1
     
-    print('-------------------------------- PRUEBA CHI CUADRADO ----------------------- \n')
+    print('-------------------------------- PRUEBA UNIFORMIDAD * CHI CUADRADO * ----------------------- \n')
     if sum(listaChiCuadrado) <= chiCritico:
-        print("El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
+        print("PASA LA PRUEBA CHI CUADRADO: El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
         print('Valor calculado:', sum(listaChiCuadrado))
         print('Chi critico:', chiCritico, '\n')
     else: 
-        print("No pasa la prueba Chi cuadrado, se pone en duda su uniformidad el valor calculado es mayor al critico")
+        print("NO PASA LA PRUEBA CHI CUADRADO: Se pone en duda su uniformidad el valor calculado es mayor al critico")
         print('Valor calculado:', sum(listaChiCuadrado))
         print('Chi critico:', chiCritico, '\n')
     print(t, '\n')
@@ -54,13 +54,13 @@ def kolmogorov(secuencia,frecuenciaObtenida):
         t.add_row([rangos[rangoaux],FO,FOA,POA,PEA,PEAmenosPOA])
         rangoaux+=1
 
-    print('------------------------- PRUEBA KOLMOGOROV - SMIRNOV ----------------------------------\n')
+    print('------------------------- PRUEBA UNIFORMIDAD * KOLMOGOROV - SMIRNOV * ----------------------------------\n')
     if max(listaKolmogorov) <= DMcritico:
-        print("El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
+        print("PASA LA PRUEBA KOLMOGOROV: El generador es bueno en cuanto a uniformidad, el valor calculado es menor o igual al critico")
         print('Valor calculado:', max(listaKolmogorov))
         print('DMcritico:', DMcritico, '\n')
     else:
-        print("No pasa la prueba kolmogorov, se pone en duda su uniformidad el valor calculado es mayor al critico")
+        print("NO PASA LA PRUEBA KOLMOGOROV: Se pone en duda su uniformidad el valor calculado es mayor al critico")
         print('Valor calculado:', max(listaKolmogorov))
         print('DMcritico:', DMcritico, '\n')
     print(t, '\n')
