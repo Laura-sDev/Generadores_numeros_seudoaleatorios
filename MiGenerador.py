@@ -136,6 +136,9 @@ def hallarPeriodo(lista):
 #PCC(secuenciaGEM, frecuenciaObtenidaGEM)
 #print(relacionSecuenciaGLC)
 
+#PCC(secuenciaGLC,frecuenciaObtenidaGLC)
+#PCC(secuenciaGEM, frecuenciaObtenidaGEM)
+#print(relacionSecuenciaGLC)
 #series(relacionSecuenciaGLC)
 #poker(relacionSecuenciaGLC,5)
 #poker(relacionSecuenciaGLC,3)
