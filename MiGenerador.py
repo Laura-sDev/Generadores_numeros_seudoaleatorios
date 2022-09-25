@@ -121,7 +121,7 @@ def hallarPeriodo(lista):
 
 #llamadosFunciones
 
-GLC(106,145,6075,5)
+#GLC(106,145,6075,5)
 #GEM(106,6075,5)
 #GPY(5000)
 #corridas(secuenciaGPY)
@@ -129,14 +129,14 @@ GLC(106,145,6075,5)
 
 
 
-kolmogorov(secuenciaGLC,frecuenciaObtenidaGLC)
-PCC(secuenciaGLC,frecuenciaObtenidaGLC)
+#kolmogorov(secuenciaGLC,frecuenciaObtenidaGLC)
+#PCC(secuenciaGLC,frecuenciaObtenidaGLC)
 #PCC(secuenciaGEM, frecuenciaObtenidaGEM)
 #print(relacionSecuenciaGLC)
-series(relacionSecuenciaGLC)
-poker(relacionSecuenciaGLC,5)
-poker(relacionSecuenciaGLC,3)
-corridas(relacionSecuenciaGLC)
+#series(relacionSecuenciaGLC)
+#poker(relacionSecuenciaGLC,5)
+#poker(relacionSecuenciaGLC,3)
+#corridas(relacionSecuenciaGLC)
 #print(secuenciaGLC)
 #GEM(100,6075,10)
 #print(relacionSecuenciaGEM)
