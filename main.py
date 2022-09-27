@@ -1,6 +1,13 @@
 from PruebasIndependencia import *
 from PruebasUnformidad import *
 from MiGenerador import *
+import matplotlib.pyplot as plt
+
+def graficas(secuencia):
+    plt.figure(dpi=100)
+    plt.bar(range(1,len(secuencia)+1),secuencia)
+    plt.show()
+
 
 def main(a=0,c=0,m=0,x0=0,generator='GLC',activar_chiCuadrado=True, activar_kolmogorov=True, activar_corridas=True, activar_series=True, activar_poker=True):
     
@@ -35,10 +42,12 @@ def main(a=0,c=0,m=0,x0=0,generator='GLC',activar_chiCuadrado=True, activar_kolm
             poker(RELACION,3)
             poker(RELACION,5)
     else: print('generador retorno lista vacia')
+    graficas(SECUENCIA)
 
 #main(a=255, generator='GLC', c=100,m=10033,x0=5,activar_chiCuadrado=False, activar_kolmogorov=False, activar_corridas=False, activar_series=False)
-#main(a=255, generator='GEM', c=100,m=1033,x0=5,activar_chiCuadrado=False, activar_kolmogorov=False, activar_corridas=False, activar_series=False)
-#main(a=255, generator='GEM', c=100,m=1033,x0=5)
-main(a=23, generator='GLC', c=1000,m=10033,x0=5)
+#main(a=255, generator='GLM', c=100,m=1033,x0=5,activar_chiCuadrado=False, activar_kolmogorov=False, activar_corridas=False, activar_series=False)
+#main(a=255, generator='GLM', c=100,m=1033,x0=5)
+#main(a=23, generator='GLC', c=1000,m=10033,x0=5)
+#main(a=106, generator='GEM',m=6075,x0=5)
 #main(m = 500,generator='GPY',activar_chiCuadrado=False, activar_kolmogorov=False, activar_corridas=False, activar_series=False)
-#main(m = 5000,generator='GPY')
+main(m = 5000,generator='GPY')
