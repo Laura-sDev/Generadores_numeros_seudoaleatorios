@@ -163,7 +163,7 @@ def series(secuencia):
 # Poker
 def poker(secuencia,decimales):
     t = PrettyTable (['Rangos','FO ','FE', '|FE-FO|'])
-    listaCasosP5=('TD','1P','2P','TP','T','P','Q')
+    listaCasosP5=('TD','1P','2P','T','TP','P','Q')
     listaCasosP3=('TD','1P','T')
     #poker 3 ----------------------------------------------------
     if decimales == 3:
@@ -269,10 +269,10 @@ def poker(secuencia,decimales):
         for i in range(len(listaCasos)):
             if listaCasos[i][0] == 5:   categorias[0] += 1
             elif listaCasos[i][2] == 1 and listaCasos[i][1] == 1: 
-                                        categorias[3] += 1
+                                        categorias[4] += 1
             elif listaCasos[i][1] == 1: categorias[1] += 1
             elif listaCasos[i][1] == 2: categorias[2] += 1
-            elif listaCasos[i][2] == 1: categorias[4] += 1
+            elif listaCasos[i][2] == 1: categorias[3] += 1
             elif listaCasos[i][3] == 1: categorias[5] += 1
             elif listaCasos[i][4] == 1: categorias[6] += 1
 

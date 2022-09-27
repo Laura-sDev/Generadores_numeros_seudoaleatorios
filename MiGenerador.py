@@ -17,6 +17,7 @@ frecuenciaObtenidaGEM = [0]*10
 
 # Variables GPY
 secuenciaGPY = list()
+relacionSecuenciaGPY = list()
 frecuenciaObtenidaGPY = [0]*10
 
 # Generador lineal congruente
@@ -42,7 +43,7 @@ def GLC(a,c,m,x0):
                 break
 
             parada+=1
-            if parada == 1000000:
+            if parada > m:
                 print("semilla lejos")
                 break
 
@@ -64,8 +65,8 @@ def GEM(a,m,x0):
         if (0<xn and xn<=m):
             relacion = round(xn/m, 5)
             relacionSecuenciaGEM.append(relacion)
-            posicion = math.floor(relacion*10)
             
+            posicion = math.floor(relacion*10)
             if posicion == 10:
                 frecuenciaObtenidaGEM[9]+=1
             else:frecuenciaObtenidaGEM[posicion] += 1
@@ -92,16 +93,15 @@ def GEM(a,m,x0):
 # Generador python
 def GPY(m):
     for _ in range(m):
-        xn = round(random.uniform(0,1),5)
-        if xn < 0.0001:
-            xn = 0
+        xn = random.randint(0,m)
+        secuenciaGPY.append(xn)
+        relacion = round(xn/m,5)
+        relacionSecuenciaGPY.append(relacion)
 
-        posicion = math.floor(xn*10) 
+        posicion = math.floor(relacion*10) 
         if posicion == 10:
             frecuenciaObtenidaGPY[9]+=1
         else:frecuenciaObtenidaGPY[posicion] += 1
-
-        secuenciaGPY.append(xn)
 
     print('-------------------------------------- GENERADOR DE PYTHON -----------------------------------\n')
     print('\n')
@@ -109,7 +109,7 @@ def GPY(m):
     print('***********************************Secuencia generada:**********************************\n')
     print(secuenciaGPY,'\n')
 
-    return secuenciaGPY,frecuenciaObtenidaGPY
+    return secuenciaGPY,frecuenciaObtenidaGPY, relacionSecuenciaGPY
 
 #funcion para el periodo
 def hallarPeriodo(lista):
@@ -124,7 +124,7 @@ def hallarPeriodo(lista):
 #GLC(106,145,6075,5)
 
 #GEM(106,6075,5)
-#GPY(5000)
+#GPY(500)
 #corridas(secuenciaGPY)
 
 

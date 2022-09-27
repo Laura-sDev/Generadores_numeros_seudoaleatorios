@@ -9,10 +9,10 @@ listaChiCuadrado = list()
 listaKolmogorov = list()
 
 # Prueba chi cuadrado
-def PCC(secuencia,frecuenciaObtenida):
+def PCC(relacionsecuencia,frecuenciaObtenida):
     t = PrettyTable (['Rangos','FO ','FE','(FE-FO)^2/FE'])
     chiCritico = 16.92
-    FE = len(secuencia)/10
+    FE = len(relacionsecuencia)/10
     rangoaux=0
 
     for FO in frecuenciaObtenida:
@@ -34,9 +34,9 @@ def PCC(secuencia,frecuenciaObtenida):
     print(t, '\n')
 
 # Prueba kolmogorov
-def kolmogorov(secuencia,frecuenciaObtenida):
+def kolmogorov(relacionsecuencia,frecuenciaObtenida):
     t = PrettyTable (['Rangos','FO ','FOA', 'POA', 'PEA', '|PEA-POA|'])
-    DMcritico  = 1.36/math.sqrt(len(secuencia))
+    DMcritico  = 1.36/math.sqrt(len(relacionsecuencia))
     acumulado2 = 0
     FOA = 0
     POA = 0
@@ -45,8 +45,8 @@ def kolmogorov(secuencia,frecuenciaObtenida):
     
     for FO in frecuenciaObtenida:
         FOA += FO
-        POA = round((FOA/len(secuencia)),5)
-        acumulado2 = round((len(secuencia)/10)/len(secuencia),5)
+        POA = round((FOA/len(relacionsecuencia)),5)
+        acumulado2 = round((len(relacionsecuencia)/10)/len(relacionsecuencia),5)
         PEA += acumulado2
         PEAmenosPOA = round(abs(PEA - POA),5)
         listaKolmogorov.append(PEAmenosPOA)
