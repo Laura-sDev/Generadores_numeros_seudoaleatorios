@@ -93,7 +93,7 @@ def GEM(a,m,x0):
 # Generador python
 def GPY(m):
     for _ in range(m):
-        xn = random.randint(0,m)
+        xn = random.randint(1,m)
         secuenciaGPY.append(xn)
         relacion = round(xn/m,5)
         relacionSecuenciaGPY.append(relacion)

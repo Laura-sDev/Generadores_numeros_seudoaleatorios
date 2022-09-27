@@ -192,7 +192,7 @@ def poker(secuencia,decimales):
         
         s = len(secuencia)
         FO = categiras_3
-        FE = [round(0.72*s,3), round(0.27*s,3), round(0.1*s,3)]
+        FE = [round(0.72*s,3), round(0.27*s,3), round(0.01*s,3)]
         Xcalc = 0
         Xcritico = 5.99
 
@@ -278,9 +278,10 @@ def poker(secuencia,decimales):
 
         FO = categorias
         l = len(secuencia)
-        FE = [round(0.3024*l,3), round(0.504*l,3), round(0.108*l,3),round(0.009*l,3),round(0.072*l,3),round(0.0045*l,3),round(0.0001*l,3)]
+        FE = [round(0.3024*l,3), round(0.504*l,3), round(0.108*l,3),round(0.072*l,3),round(0.009*l,3),round(0.0045*l,3),round(0.0001*l,3)]
         Xcalc = 0
         Xcritico = 12.59
+        listaXcalc.clear()
 
         for i in range(len(FO)):
             Xcalc = round(((FO[i]-FE[i])**2)/FE[i], 5)
